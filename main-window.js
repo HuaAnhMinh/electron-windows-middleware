@@ -9,11 +9,11 @@ document.getElementById('create-sub-window').addEventListener('click', () => {
   document.getElementById('create-sub-window').disabled = true;
   newWindow = window.open(__dirname + '/sub-window.html', '');
   newWindow.postMessage = window.windowsHandler.sendMiddleware(newWindow.postMessage);
-  newWindow.opener.postMessage = window.windowsHandler.receiveMiddleware(newWindow.window.opener.postMessage);
 });
 
 ipcRenderer.on('send-new-window-id', (_, arg) => {
   subscribe(arg, newWindow, window.windowsHandler);
+  newWindow.opener.postMessage = window.windowsHandler.receiveMiddleware(newWindow.window.opener.postMessage, arg);
   document.getElementById('create-sub-window').disabled = false;
 });
 
