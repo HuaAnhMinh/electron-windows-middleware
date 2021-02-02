@@ -30,6 +30,7 @@ class Windows {
   receiveMiddleware(postMessage, from = '') {
     return function (message = '') {
       // mock test checking message from sub window
+      console.log(message);
       if (message.includes('test')) {
         return console.log('Message can not have "test"');
       }

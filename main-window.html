@@ -9,7 +9,22 @@
   <h1>Main window</h1>
 
   <p>Click to create new sub window</p>
-  <button id="create-sub-window">Create sub window</button>
+  <div>
+    <button id="create-sub-window">Create sub window</button>
+  </div>
+  
+  <div style="margin-top: 10px;">
+    <select id="list-sub-windows">
+      <option value="" hidden>Choose a sub window</option>
+    </select>
+  </div>
+
+  <div style="margin-top: 10px;">
+    <input placeholder="Enter some message" id="message-input" />
+    <button id="send-message-button">Send message</button>
+    <button id="send-all-button">Send all</button>
+  </div>
 </body>
 <script src="./main-window.js"></script>
+<script src="./main-messages.js"></script>
 </html>
