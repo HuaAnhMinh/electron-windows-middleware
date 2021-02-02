@@ -5,5 +5,14 @@ setTimeout(() => {
 }, 3000);
 
 window.addEventListener('message', (event) => {
-  console.log(`From main window: ${event.data}`);
+  const message = event.data;
+  console.log(message);
+  const li = document.createElement('li');
+  li.textContent = `From main: ${message}`;
+  document.getElementById('list-messages').append(li);
+});
+
+document.getElementById('send-message-button').addEventListener('click', () => {
+  const message = document.getElementById('message-input').value;
+  window.opener.postMessage(message);
 });

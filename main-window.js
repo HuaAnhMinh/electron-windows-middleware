@@ -35,5 +35,9 @@ ipcRenderer.on('sub-window-close', (_, arg) => {
 });
 
 window.addEventListener('message', (event) => {
-  console.log(event.data)
+  const message = event.data;
+  console.log(message);
+  const li = document.createElement('li');
+  li.textContent = `From ${message.from}: ${message.message}`;
+  document.getElementById('list-messages').append(li);
 }, false);
